@@ -37,7 +37,8 @@ defmodule Quark.Mixfile do
         extras: ["README.md"],
         logo: "./brand/logo.png",
         main: "readme"
-      ]
+      ],
+      xref: [exclude: [Jason]]
     ]
   end
 end
