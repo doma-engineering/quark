@@ -3,7 +3,7 @@ defmodule Quark.Mixfile do
 
   def project do
     [
-      app: :quark,
+      app: :doma_quark,
       name: "Quark",
       description:
         "Common combinators for Elixir, forked by doma for maintenance and testing packagesets by doma.",
