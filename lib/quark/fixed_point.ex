@@ -77,11 +77,14 @@ defmodule Quark.FixedPoint do
   defpartial turing(fun), do: turing_inner().(turing_inner()).(fun)
 
   defpartialp turing_inner(x, y) do
-    if turing_inner(x, y) === turing_inner(x, y) do
-      cx = curry(x)
-      cy = curry(y)
-      cy.(&(cx.(cx).(cy).(&1)))
+    _phony = fn ->
+      turing_inner(x)
+      turing_inner(x, y)
     end
+
+    cx = curry(x)
+    cy = curry(y)
+    cy.(&(cx.(cx).(cy).(&1)))
   end
 
   @doc ~S"""
