@@ -53,25 +53,6 @@ defmodule Quark.Compose do
   def compose(funcs) when is_list(funcs), do: funcs |> List.foldr(&id/1, &compose/2)
 
   @doc ~S"""
-  Infix compositon operator
-
-  ## Examples
-
-      iex> sum_plus_one = fn x -> x + 1 end <|> &Enum.sum/1
-      ...> sum_plus_one.([1,2,3])
-      7
-
-      iex> add_one  = &(&1 + 1)
-      ...> piped    = [1, 2, 3] |> Enum.sum() |> add_one.()
-      ...> composed = [1, 2, 3] |> ((add_one <|> &Enum.sum/1)).()
-      ...> piped == composed
-      true
-
-  """
-  @spec fun <|> fun :: fun
-  def g <|> f, do: compose(g, f)
-
-  @doc ~S"""
   Function composition, from the head to tail (left-to-right)
 
   ## Examples

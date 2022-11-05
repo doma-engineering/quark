@@ -18,7 +18,6 @@ defmodule Quark do
 
   defdelegate compose(a), to: Quark.Compose
   defdelegate compose(a, b), to: Quark.Compose
-  defdelegate a <|> b, to: Quark.Compose
 
   defdelegate fix(fun), to: Quark.FixedPoint
 

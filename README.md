@@ -52,7 +52,7 @@ deeper functional composition of functions for reuse.
 - Fully-curried and partially applied functions
 - Macros for defining curried and partially applied functions
 - Composition helpers
-  - Composition operator: `<|>`
+  - Function: `compose/2`
 - A plethora of common functional programming primitives, including:
   - `id`
   - `flip`
@@ -156,7 +156,7 @@ Contrived.sum_plus_one([1,2,3])
 Compose functions to do convenient partial applications.
 Versions for composing left-to-right and right-to-left are provided
 
-The operator `<|>` is done "the math way" (right-to-left).
+The function `compose/2` is done "the math way" (right-to-left).
 The operator `<~>` is done "the flow way" (left-to-right).
 
 Versions on lists also available.
@@ -165,13 +165,13 @@ Versions on lists also available.
 import Quark.Compose
 
 # Regular Composition
-sum_plus_one = fn x -> x + 1 end <|> &Enum.sum/1
+sum_plus_one = compose(fn x -> x + 1 end, &Enum.sum/1)
 sum_plus_one.([1,2,3])
 #=> 7
 
 add_one = &(&1 + 1)
 piped = fn x -> x |> Enum.sum |> add_one.() end
-composed = add_one <|> &Enum.sum/1
+composed = compose(add_one, &Enum.sum/1)
 piped.([1,2,3]) == composed.([1,2,3])
 #=> true
 
