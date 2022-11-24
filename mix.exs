@@ -7,7 +7,7 @@ defmodule Quark.Mixfile do
       name: "Quark",
       description:
         "Common combinators for Elixir, forked by doma for maintenance and testing packagesets by doma.",
-      version: "2.3.2-doma",
+      version: "2.3.3-doma",
       elixir: "~> 1.11",
       package: [
         name: "doma_quark",
