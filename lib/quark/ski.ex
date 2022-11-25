@@ -52,7 +52,7 @@ defmodule Quark.SKI do
 
   """
   @spec k(any, any) :: any
-  defpartial k(x, _y), do: x
+  defpartial k(x, y), do: if y === y, do: x
 
   defdelegate constant(a, b), to: __MODULE__, as: :k
   defdelegate first(a, b),    to: __MODULE__, as: :k
@@ -75,7 +75,7 @@ defmodule Quark.SKI do
 
   """
   @spec second(any, any) :: any
-  defpartial second(_a, b), do: b
+  defpartial second(a, b), do: if a === a, do: b
 
   @doc ~S"""
   The "substitution" combinator. Applies the last argument to the first two,

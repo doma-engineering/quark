@@ -3,11 +3,11 @@ defmodule Quark.Mixfile do
 
   def project do
     [
-      app: :quark,
+      app: :doma_quark,
       name: "Quark",
       description:
         "Common combinators for Elixir, forked by doma for maintenance and testing packagesets by doma.",
-      version: "2.3.2-doma",
+      version: "2.3.3-doma",
       elixir: "~> 1.11",
       package: [
         name: "doma_quark",
@@ -37,7 +37,8 @@ defmodule Quark.Mixfile do
         extras: ["README.md"],
         logo: "./brand/logo.png",
         main: "readme"
-      ]
+      ],
+      xref: [exclude: [Jason]]
     ]
   end
 end
